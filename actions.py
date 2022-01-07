@@ -1,6 +1,8 @@
 from __future__ import annotations
 from typing import Optional, Tuple, TYPE_CHECKING
 
+from entity import Actor
+
 if TYPE_CHECKING:
     from engine import Engine
     from entity import Entity
@@ -28,6 +30,10 @@ class Action:
 class EscapeAction(Action):
     def perform(self) -> None:
         raise SystemExit()
+
+class WaitAction(Action):
+    def perform(self) -> None:
+        pass
 
 class ActionWithDirection(Action):
     def __init__(self, entity: Entity, dx: int, dy: int):
